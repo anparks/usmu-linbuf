@@ -39,6 +39,18 @@ A functional diagram of the uSMU LINBUF rev1
 <p>
 
 <hr>
+<h3>Warnings</h3>
+
+<ul>
+
+<li>The LINBUF has no current limiting or fault protection... Always use a current-limited power supply, and set the lowest possible limit</li>
+
+<li>Reversing the power supply polarity, even for a moment, may damage the uSMU or your load</li>
+<li>Do NOT change any other switch positions when the output enable switch is ON</li>
+
+</ul>
+
+<hr>
 <h3>Step-by-step: Using the uSMU LINBUF</h3>
 
 
@@ -78,17 +90,6 @@ Switch the output enable switch to the ON position to supply your device under t
 Capture a trace on your oscilloscope or DAQ, and process it to compute load current.
 The load current may be computed as (SENS_HI - SENS_LO) / (R_SENSE)
 
-<hr>
-<h3>Warnings</h3>
-
-<ul>
-
-<li>The LINBUF has no current limiting or fault protection... Always use a current-limited power supply, and set the lowest possible limit</li>
-
-<li>Reversing the power supply polarity, even for a moment, may damage the uSMU or your load</li>
-<li>Do NOT change any other switch positions when the output enable switch is ON</li>
-
-</ul>
 
 <hr>
 <h3> Output current limits </h3>
