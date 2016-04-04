@@ -4,24 +4,23 @@
 </head>
 <body>
 
-<h1> uSMU User's Guide</h1>
+<h1> uSMU LINBUF User's Guide</h1>
 
 <a href="http://github.com/anparks/usmu">github.com/anparks/usmu</a>
 
 <p />
 
-The uSMU (micro- Source Measure Unit) tool is intended to allow current measurement with a high temporal resolution and high dynamic range.
+The uSMU (micro- Source Measure Unit) tools are intended to allow current measurement with a high temporal resolution and high dynamic range.
 
-<h2>uSMU Linear Buffered Sense Resistor</h2>
-
+<p />
 The uSMU LINBUF tool is a simple implementation of the uSMU with decent dynamic range and good precision.
-
 
 <p align="center">
 <img width="400" src="img/board.jpg"></img><br />
 The uSMU LINBUF rev1 hardware
 </p>
 
+<hr>
 <h3>Theory of operation</h3>
 
 <p /> 
@@ -39,6 +38,7 @@ The input voltage for the LINBUF device must be between 12 and 32V, in order to 
 A functional diagram of the uSMU LINBUF rev1
 <p>
 
+<hr>
 <h3>Step-by-step: Using the uSMU LINBUF</h3>
 
 
@@ -52,6 +52,7 @@ MAKE SURE the output enable switch is in the OFF position before connecting a po
 
 <p />
 <b>3. Select a sense resistor value </b><br>
+Higher sense resistor values give better current resolution, while lower sense resistor values give a higher peak current limit. Enable a sense resistor value by turning the corresponding switch to the "ON" position. If multiple resistors are enabled, they will be placed in parallel and so the parallel combination should be computed.
 
 
 <p />
@@ -62,16 +63,22 @@ Now configure the voltage that will be supplied to the device you'd like to moni
 <p />***Be sure to disconnect your voltmeter from VMON before moving to the next step. Current flowing to your voltmeter will cause an error in load current measurement.
 
 <p />
-<b>4. Connect the LINBUF to your load</b><br>
+<b>4. Connect the LINBUF output to the load device</b><br>
 The output terminals OUT+ and GND may be connected to the supply rails of the device you'd like to monitor.
 
-
+<p />
 <b>5. Connect the auxiliary buffer (optional) </b><br>
 The LINBUF provides an extra buffer for performing isolated voltage measurements of your device under test. The AUX_IN pin may be connected to any digital or analog node in your device under test, provided that node's voltage will not exceed the supply rail of the LINBUF. The AUX_OUT can then be connected to your oscilloscope.
 
-<b>6. Enable the output</b><br>
+<p />
+<b>6. Enable the output, and capture data</b><br>
 Switch the output enable switch to the ON position to supply your device under test. 
 
+<p />
+Capture a trace on your oscilloscope or DAQ, and process it to compute load current.
+The load current may be computed as (SENS_HI - SENS_LO) / (R_SENSE)
+
+<hr>
 <h3>Warnings</h3>
 
 <ul>
@@ -83,6 +90,7 @@ Switch the output enable switch to the ON position to supply your device under t
 
 </ul>
 
+<hr>
 <h3> Output current limits </h3>
 <p />
 The maximum sourced current capability of the LINBUF is dependent on it's configuration. Factors to consider include:
@@ -107,7 +115,7 @@ Continuous current capability = sqrt((R_sense power rating) / (R_sense value))
 <tr>
 <td>
 Peak current limit* = (V_source - V_ref)/ (R_sense value)<br>
-<b>*Peak current value is NOT sustainable due to heating limitations</b>
+<b>*Peak current value is NOT sustainable due to component overheating</b>
 </td>
 </tr>
 </table>
@@ -116,11 +124,12 @@ Peak current limit* = (V_source - V_ref)/ (R_sense value)<br>
 As an example, for a 100 Ohm 1/2 Watt sense resistor, a 32V source voltage, and a 2V output voltage, the LINBUF can source up to 70mA continuously and will limit peaks that are higher than around 300mA. 
 
 
-
+<hr>
 <h3>Precision and accuracy</h3>
 
 The precision of the uSMU LINBUF will be dependent on the sense resistor used, and the resolution of the oscilloscope or data acquisition device used. The sense resistor value provides the current-to-voltage conversion gain. For example, a 1k Ohm sense resistor will generate a 1V output differential between SENS HI and SENS LO for every 1mA of current consumed by the load, meaning an oscilloscope with a 10mV resolution will resolve changes in load current as small as 10uA.
 
+<p />
 Assuming an accurate oscilloscope or DAQ, accuracy of the uSMU LINBUF is dependent on two factors: 
 <ol>
  <li> The additional current paths produced by buffer inputs </li>
@@ -129,7 +138,8 @@ Assuming an accurate oscilloscope or DAQ, accuracy of the uSMU LINBUF is depende
 
 Generally speaking, the accuracy will be better than the minimal resolution of the measurement equipment.
 
-
+<br>
+<br>
 
 </body
 </html>
