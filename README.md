@@ -1,3 +1,9 @@
-This is a PCB project repository for the uSMU project, a small source-measure unit with high temporal resolution and high dynamic range.
+This repository contains hardware design files for the uSMU LINBUF project, a test instrument for measuring the time-domain current consumption of low-power loads.
 
-Project files and libraries are compatible with Altium Designer 14+
+Hardware project files and libraries are in altium/* and are compatible with Altium Designer 14+.
+
+Gerber files for PCB manufacturing are available under gerbers/.
+
+The user's manual is at doc/manual.html, and a PDF printout of the schematics are at doc/schematic.pdf.
+
+
