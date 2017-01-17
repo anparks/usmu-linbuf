@@ -2,8 +2,6 @@ This repository contains hardware design files for the uSMU LINBUF project, a te
 
 Hardware project files and libraries are in altium/* and are compatible with Altium Designer 14+.
 
-Gerber files for PCB manufacturing are available under gerbers/.
-
 The user's manual is at doc/manual.html, and a PDF printout of the schematics are at doc/schematic.pdf.
 
 
